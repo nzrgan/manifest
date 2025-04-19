@@ -63,6 +63,13 @@ img {
     display: flex;
     gap: 42px;
   }
+
+  .burger {
+    width: 34px;
+    height: 22px;
+    background-image:repeating-linear-gradient(black 0, black 2px, transparent 2px, transparent 10px);
+    display: none;
+  }
 }
 
 .hero {
@@ -162,6 +169,15 @@ footer .container {
     padding: 0 34px;
   }
 
+  .header .container {
+    nav {
+      display: none;
+    }
+
+    .burger {
+      display: unset;
+    }
+  }
   .blog .container {
     >div {
       gap: 20px;
