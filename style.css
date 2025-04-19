@@ -29,7 +29,7 @@ h1 {
 }
 
 .container {
-  width: 1170px;
+  max-width: 1170px;
   margin: 0 auto;
 }
 
@@ -154,4 +154,99 @@ footer .container {
   }
 
 
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: unset;
+    padding: 0 34px;
+  }
+
+  .blog .container {
+    >div {
+      gap: 20px;
+
+      >* {
+        width: calc(50% - 10px);
+      }
+    }
+  }
+
+  .posts .container {
+    ul {
+      display: unset;
+
+      li {
+        display: flex;
+
+        &:nth-child(2n) {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+
+  .popular .container {
+    ul {
+      gap: 20px;
+
+      li {
+        width: calc(50% - 10px);
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .info .container {
+    display: grid;
+    
+    >:last-child {
+      text-align: right;
+    }
+  }
+
+  footer .container {
+    >div {
+      display: unset;
+      text-align: center;
+
+      ul {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 760px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .blog .container {
+    >div {
+      display: unset;
+    }
+  }
+
+  .posts .container {
+    ul li {
+      display: unset;
+    }
+  }
+
+  .popular .container {
+    ul {
+      display: unset;
+    }
+  }
+
+  .info .container {
+    >div:last-child {
+      text-align: unset;
+    }
+  }
 }
