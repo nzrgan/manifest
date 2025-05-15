@@ -4,8 +4,6 @@
   --gray: #565656;
 }
 
-
-
 html {
   font-family: var(--font-family);
   line-height: 166%;
@@ -16,6 +14,13 @@ html {
 
 body {
   margin: 0;
+}
+
+.blog .container,
+.latest-posts .container,
+.popular .container,
+.info .container {
+  margin-block: 90px;
 }
 
 h1 {
@@ -145,7 +150,6 @@ img {
 
     &:last-child {
       flex-direction: row-reverse;
-      ;
     }
   }
 }
@@ -295,7 +299,6 @@ img {
     }
   }
 }
-}
 
 
 .popular .container {
@@ -309,32 +312,127 @@ img {
       }
     }
   }
+
+  button {
+    width: 180px;
+    height: 46px;
+    margin: 50px auto 0;
+    font-family: var(--primary-font);
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.1em;
+    background-color: #565656;
+    border: none;
+    cursor: pointer;
+    display: block;
+    transition: 0.3s ease;
+
+
+    &:hover {
+      background-color: #fff;
+      color: var(--primary-color);
+      border: 1px solid #565656;
+    }
+  }
 }
 
 
 .info .container {
   display: flex;
   justify-content: space-between;
+
+  div {
+    width: 470px;
+  }
+
+  div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+h3 {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 166%;
+  letter-spacing: 0.1em;
+  color: #000;
+}
+
+p {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 168%;
+  letter-spacing: 0.05em;
+  color: var(--gray);
+}
+
+footer {
+  background-color: #F4F4F4;
 }
 
 footer .container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+
   >div {
     display: flex;
     justify-content: space-between;
+    gap: 18px;
 
     a {
       display: block;
+      color: #000;
     }
 
-    ul {
+    .social {
       display: flex;
-      gap: 30px;
+      align-items: center;
+      gap: 15px;
+      list-style: none;
+      padding: 0;
+
+      li button {
+        background: transparent;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 24px;
+          height: 24px;
+          transition: filter 0.3s;
+        }
+
+        &:hover {
+          background-color: #565656;
+
+          img {
+            filter: brightness(0) invert(1);
+          }
+        }
+      }
     }
   }
 
-
   p {
     text-align: center;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 166%;
+    letter-spacing: 0.1em;
+    color: #000;
   }
 
   h3 {
@@ -344,7 +442,6 @@ footer .container {
     line-height: 133%;
     letter-spacing: 0.05em;
     color: #000;
-
 
   }
 }
@@ -357,6 +454,7 @@ footer .container {
 
   .header .container {
     position: relative;
+    padding-inline: 34px;
 
     :not(:checked)+nav {
       display: none;
@@ -405,8 +503,14 @@ footer .container {
   }
 
   .blog .container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
     >div {
-      align-items: center;
+      display: flex;
+      gap: 20px;
+      margin: 0;
 
       >* {
         width: calc(50% - 10px);
@@ -418,7 +522,8 @@ footer .container {
       }
 
       .content {
-        padding: 0;
+        display: flex;
+        flex-direction: column;
       }
     }
   }
@@ -480,6 +585,18 @@ footer .container {
 
   .info .container {
     display: grid;
+    grid-template-columns: 100%;
+    margin-block: 70px 90px;
+
+    div {
+      width: unset;
+
+      p {
+        max-width: 628px;
+        margin-left: auto;
+      }
+    }
+
 
     >:last-child {
       text-align: right;
@@ -500,31 +617,168 @@ footer .container {
 
 
 @media (max-width: 760px) {
+
   .container {
-    padding: 0 10px;
+    padding-inline: 10px;
+  }
+
+  .blog .container,
+  .latest-posts .container,
+  .popular .container,
+  .info .container {
+    margin-block: 70px;
+  }
+
+  .header .container {
+    padding-inline: 10px;
+
+    nav {
+      width: 180px;
+      height: 36vh;
+
+      ul {
+        padding-block: 1vh;
+      }
+    }
+
+    button {
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+
+  .hero .container {
+    h2 {
+      padding-inline: 10px;
+    }
   }
 
   .blog .container {
-    >div {
-      display: unset;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    h2 {
+      text-align: center;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column-reverse;
+      margin: 0;
+
+      >* {
+        width: 100%;
+      }
+
+      img {
+        object-fit: cover;
+        align-self: stretch;
+      }
+
+      &:last-child {
+        flex-direction: column-reverse;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
 
   .posts .container {
-    ul li {
-      display: unset;
+
+    header {
+      display: block;
+
+      a {
+        padding-block: 10px 20px;
+      }
+    }
+
+    ul {
+      margin: 0;
+      gap: 50px;
+
+      li {
+        flex-direction: column;
+
+        >* {
+          width: 100%;
+        }
+
+        &:nth-child(2n) {
+          flex-direction: column;
+        }
+
+        .content {
+          div {
+            display: flex;
+            flex-direction: row;
+
+            span {
+              font-size: 16px;
+            }
+          }
+        }
+      }
     }
   }
 
   .popular .container {
+
+    header {
+      display: block;
+
+      a {
+        padding-block: 10px 20px;
+      }
+    }
+
     ul {
-      display: unset;
+      margin: 0;
+      gap: 50px;
+      flex-direction: column;
+
+      li {
+        width: 100%;
+
+        div {
+          span {
+            font-size: 16px;
+          }
+        }
+      }
     }
   }
 
   .info .container {
-    >div:last-child {
-      text-align: unset;
+    >:last-child {
+      text-align: left;
+    }
+
+    div {
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+
+  footer .container {
+    div {
+      gap: 20px;
+
+      h3 {
+        font-size: 32px;
+        margin: 0;
+      }
+    }
+
+    p {
+      font-size: 16px;
     }
   }
 }
